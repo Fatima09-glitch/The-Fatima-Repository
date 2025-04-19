@@ -1,5 +1,5 @@
 class QuizQuestion {
-  const QuizQuestion(this.text, this.answers);
+  const QuizQuestion(this.text, this.answers); //Represents a single quiz question and its possible answers.
 
   final String text;
   final List<String> answers;
@@ -9,4 +9,5 @@ class QuizQuestion {
     shuffleList.shuffle();
     return shuffleList;
   }
+  //Randomizes answer order each time to avoid memorization.
 }

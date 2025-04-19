@@ -1,3 +1,4 @@
+//Main Quiz Interface
 import 'package:flutter/material.dart';
 
 import 'package:qyiz_app/components/answer_button.dart';
@@ -15,6 +16,7 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   var currentQuestionIndex = 0;
 
+  //Stores the answer and moves to the next question.
   void answerQuestion(String selectedAnswer) {
     widget.onSelectAnswer(selectedAnswer);
     setState(() {
@@ -44,13 +46,17 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             ),
             const SizedBox(height: 30),
             ...currentQuestion.getShuffledAnswers().map((answer) {
-              return AnswerButton(
-                text: answer,
-                onTap: () {
-                  answerQuestion(answer);
-                },
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 6),
+                child: AnswerButton(
+                  text: answer,
+                  onTap: () {
+                    answerQuestion(answer);
+                  },
+                ),
               );
             })
+
           ],
         ),
       ),

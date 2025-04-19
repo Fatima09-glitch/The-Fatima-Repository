@@ -1,3 +1,4 @@
+// Intro Page
 import 'package:flutter/material.dart';
 
 class StartScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class StartScreen extends StatelessWidget {
             style: OutlinedButton.styleFrom(
               foregroundColor: Colors.white,
             ),
-            onPressed: startQuiz,
+            onPressed: startQuiz, //changes to question screen.
             label: const Text('Start Quiz'),
           ),
         ],

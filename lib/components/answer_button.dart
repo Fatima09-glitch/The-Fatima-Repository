@@ -6,6 +6,7 @@ class AnswerButton extends StatelessWidget {
     required this.text,
     required this.onTap,
   });
+  //button for each quiz page
 
   final String text;
   final void Function() onTap;

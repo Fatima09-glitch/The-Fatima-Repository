@@ -1,3 +1,4 @@
+// End Page with Summary
 import 'package:flutter/material.dart';
 import 'package:qyiz_app/components/quesstions_summary.dart';
 import 'package:qyiz_app/data/questions.dart';
@@ -34,6 +35,9 @@ class ResultsScreen extends StatelessWidget {
       return data['user_answer'] == data['correct_answer'];
     }).length;
 
+    // Check if all answers are correct
+    final allCorrect = numCorrectQuestions == numTotalQuestions;
+
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -50,6 +54,28 @@ class ResultsScreen extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
+            const SizedBox(height: 30),
+            // If all answers are correct, show a congratulatory message/image
+            if (allCorrect)
+              Column(
+                children: [
+                  const Text(
+                    'Good Job! 😊',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Image.network(
+                    'https://cdn-icons-png.flaticon.com/512/3159/3159066.png',
+                    width: 100,
+                    height: 100,
+                  )
+
+                ],
+              ),
             const SizedBox(height: 30),
             QuestionsSummary(getSummaryData()),
             const SizedBox(height: 30),

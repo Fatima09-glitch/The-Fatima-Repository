@@ -5,7 +5,7 @@ import 'package:qyiz_app/screens/results_screen.dart';
 import 'package:qyiz_app/screens/start_screen.dart';
 
 class Quiz extends StatefulWidget {
-  const Quiz({super.key});
+  const Quiz({super.key}); //UI changes based on user interaction.
 
   @override
   State<Quiz> createState() => _QuizState();
@@ -13,15 +13,15 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
   List<String> selectedAnswers = [];
-  var activeScreen = 'start-screen';
+  var activeScreen = 'start-screen'; //Keeps track of user answers and which screen is currently shown.
 
-  void switchScreen() {
+  void switchScreen() { //moves to question screen
     setState(() {
       activeScreen = 'questions-screen';
     });
   }
 
-  void chooseAnswer(String answer) {
+  void chooseAnswer(String answer) { // adds answer and checks if quiz is done
     selectedAnswers.add(answer);
 
     if (selectedAnswers.length == questions.length) {
@@ -31,7 +31,7 @@ class _QuizState extends State<Quiz> {
     }
   }
 
-  void restartQuiz() {
+  void restartQuiz() { //clears state and restarts
     setState(() {
       selectedAnswers = [];
       activeScreen = 'questions-screen';
@@ -66,8 +66,8 @@ class _QuizState extends State<Quiz> {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Color.fromARGB(255, 122, 70, 212),
-                Color.fromARGB(255, 71, 38, 128),
+                Color(0xFF2196F3), // Light blue
+                Color(0xFF0D47A1), // Darker blue
               ],
             ),
           ),
